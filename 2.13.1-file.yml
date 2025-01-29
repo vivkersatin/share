@@ -1,0 +1,14 @@
+---
+- name: Create Temporary Directory
+  hosts: all
+  tasks:
+    - name: Create /tmp/dir1 Directory
+      ansible.builtin.file:
+        path: /tmp/dir1
+        state: directory
+        mode: '0755'
+    - name: /tmp/dir1 Link To /tmp/link_to_dir1
+      ansible.builtin.file:
+        src: /tmp/dir1
+        dest: /tmp/link_to_dir1
+        state: link
