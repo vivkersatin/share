@@ -1,0 +1,5 @@
+- hosts: ubuntu_vms
+  become: yes
+  tasks:
+    - name: Reboot the server
+      reboot:

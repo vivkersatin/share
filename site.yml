@@ -1,0 +1,20 @@
+---
+- name: Playbook
+  become: true
+  hosts: all
+  tasks:
+    - name: Install Nginx
+      ansible.builtin.apt:
+        name: nginx
+        state: present
+
+    - name: Start and enable Nginx
+      ansible.builtin.service:
+        name: nginx
+        state: started
+        enabled: true
+
+    # - name: Install python3-selinux
+    #   ansible.builtin.apt:
+    #     name: python3-selinux
+    #     state: present
