@@ -1,0 +1,7 @@
+---
+- name: Create SSH Key Plsy
+  hosts: all
+  become: true
+  tasks:
+    - name: In /tmp Create SSH Key
+      ansible.builtin.command: "/usr/bin/ssh-keygen -b 2048 -t rsa -N '' -f /tmp/new-id_rsa"
