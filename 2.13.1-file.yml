@@ -1,6 +1,7 @@
 ---
 - name: Create Temporary Directory
   hosts: all
+  become: true
   tasks:
     - name: Create /tmp/dir1 Directory
       ansible.builtin.file:
@@ -12,3 +13,10 @@
         src: /tmp/dir1
         dest: /tmp/link_to_dir1
         state: link
+    - name: Change /tmp/dir1 To ansibleAdmin
+      ansible.builtin.file:
+        path: /tmp/dir1
+        state: directory
+        owner: ansibleAdmin
+        group: ansibleAdmin
+        mode: "u=rwx,g=rx,o=rx"  
