@@ -13,6 +13,11 @@
         src: /tmp/dir1
         dest: /tmp/link_to_dir1
         state: link
+    - name: Add ansibleAdmin user
+      ansible.builtin.user:
+        name: ansibleAdmin
+        state: present
+        shell: /bin/bash
     - name: Change /tmp/dir1 To ansibleAdmin
       ansible.builtin.file:
         path: /tmp/dir1
