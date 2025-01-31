@@ -1,0 +1,6 @@
+---
+- name: Test connection
+  hosts: ubuntu_vms
+  tasks:
+    - name: Ping the hosts
+      ansible.builtin.ping:
