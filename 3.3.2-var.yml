@@ -1,0 +1,15 @@
+---
+- name: Test Var
+  hosts: all
+  vars:
+    my_var: hogehoge
+    admin_user:
+      name: taro
+      uid: 1001
+  tasks:
+    - name: 將my_var 的值進行除錯輸出來確認
+      debug:
+        msg: "變數 my_var的值為{{ my_var }}"
+    - name: 將admin_user.name及admin_user.uid的值進行除錯輸出來確認
+      debug:
+        msg: "使用者名稱 {{ admin_user.name }}的UID為{{ admin_user.uid }}"
