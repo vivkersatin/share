@@ -1,8 +1,9 @@
-- hosts: ubuntu_vms
+---
+- name: Update APT on Ubuntu VMs
+  hosts: ubuntu_vms
   become: yes
-  tasks:
-    - name: Update all packages
-      apt:
-        update_cache: yes
-        upgrade: dist
 
+  tasks:
+    - name: Update apt cache
+      apt:
+        update_cache: 

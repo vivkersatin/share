@@ -1,0 +1,12 @@
+---
+- name: Get hosts-users
+  hosts: all
+  tasks:
+    - name: Get user in /etc/passwd
+      command: cut --delimiter=':' --fields=1 /etc/passwd
+      register: usernames_result
+
+    - name: Show usernames_result
+      debug:
+        var: item
+      with_items: "{{ usernames_result.stdout_lines }}"

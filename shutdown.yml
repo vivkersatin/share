@@ -1,0 +1,7 @@
+---
+- name: Shutdown Ubuntu machines
+  hosts: all
+  become: yes
+  tasks:
+    - name: Shutdown the machine
+      command: shutdown -h now
