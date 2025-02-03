@@ -5,8 +5,18 @@
     - name: Get user in /etc/passwd
       command: cut --delimiter=':' --fields=1 /etc/passwd
       register: usernames_result
+      changed_when: false
 
     - name: Show usernames_result
       debug:
         var: item
       with_items: "{{ usernames_result.stdout_lines }}"
+  
+    - name: Set username_list fact
+      set_fact:
+        username_list: "{{ usernames_result.stdout_lines }}"
+
+    - name: Check if 'user' is in username_list
+      debug:
+        msg: "'user' is in the list"
+      when: "'user' in username_list"
