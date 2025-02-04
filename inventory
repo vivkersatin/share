@@ -1,3 +1,4 @@
 [ubuntu_vms]
 server1 ansible_host=192.168.229.130 ansible_user=user
 server2 ansible_host=192.168.229.131 ansible_user=user
+server3 ansible_host=192.168.229.132 ansible_user=user
